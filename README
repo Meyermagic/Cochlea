@@ -3,6 +3,7 @@ Cochlea is intended as an open-source, more featureful clone of MuMuPlayer (mumu
 Cochlea is built on a variety of existing libraries, including:
 JQuery
 JQuery-UI
-qTip (JQuery plugin)
-MediaElement.js
+qTip (http://craigsworks.com/projects/qtip/)
+MediaElement.js (http://mediaelementjs.com/)
 AjaxUpload (http://valums.com/ajax-upload/)
+Mutagen (http://code.google.com/p/mutagen/)
