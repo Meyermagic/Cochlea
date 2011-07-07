@@ -1,0 +1,3 @@
+RewriteEngine on
+RewriteBase    /~ifx/Cochlea/
+RewriteRule    ^([^./]*)/?$    index.php?room=$1    [L]
