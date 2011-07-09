@@ -70,10 +70,10 @@ function constructPlaylistEntry(title, artist, album, votes) {
 		TD({'class': 'playlist-entry-title'}, title),
 		TD({'class': 'playlist-entry-artist'}, artist),
 		TD({'class': 'playlist-entry-album'}, album),
-		TD({'class': 'playlist-entry-votes'}, votes),
 		TD({'class': 'playlist-entry-upvote'}, 
 			BUTTON({'class': 'upvote-button'}, 'upvote').button({text: false, icons: {primary: 'ui-icon-plusthick'}})
 		),
+		TD({'class': 'playlist-entry-votes'}, votes),
 		TD({'class': 'playlist-entry-downvote'},
 			BUTTON({'class': 'downvote-button'}, 'downvote').button({text: false, icons: {primary: 'ui-icon-minusthick'}})
 		)
