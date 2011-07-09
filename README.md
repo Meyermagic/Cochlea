@@ -4,7 +4,7 @@ Cochlea is a web application for listening to music together with others, over t
 
 ## Requirements
 * [jQuery](http://jquery.com) 
-* [jQuery-UI](http://jqueryui.com) 
+* [jQuery UI](http://jqueryui.com) 
 * [qTip](http://craigsworks.com/projects/qtip) 
 * [jQuery File Upload](http://aquantum-demo.appspot.com/file-upload) 
 * [Mutagen](http://code.google.com/p/mutagen) 
