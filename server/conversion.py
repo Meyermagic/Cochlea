@@ -39,8 +39,7 @@ class Convertor(threading.Thread):
                 sourcefile = './uploads/' + data['id']
                 destfile = './audio/' + data['id'] + '.mp3'
                 
-                print os.path.dirname(os.path.realpath(__file__))
-                print sourcefile, destfile
+                print "Starting", data['id']
                 
                 #Create mp3 copy
                 convert(sourcefile, destfile)
@@ -51,27 +50,30 @@ class Convertor(threading.Thread):
                 #Remove the original
                 os.remove(sourcefile)
                 
+                print "Finished", data['id']
+                
                 #Update the song in the database
                 pass
 
 def startServer(port, concurrentThreads=1):
-    #No limit to conversion in queue
-    conversionQueue = Queue.Queue(0)
-    threadPool = []
-    
-    #Populate the thread pool
-    for i in range(concurrentThreads):
-        threadPool.append(Convertor(conversionQueue))
-    
-    #Start all the threads
-    for thread in threadPool:
-        thread.start()
-    
-    server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    #We only want local connections
-    server.bind(('127.0.0.1', port))
-    server.listen(5)
     try:
+        #No limit to conversion in queue
+        conversionQueue = Queue.Queue(0)
+        threadPool = []
+        
+        #Populate the thread pool
+        for i in range(concurrentThreads):
+            threadPool.append(Convertor(conversionQueue))
+        
+        #Start all the threads
+        for thread in threadPool:
+            thread.start()
+        
+        server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        #We only want local connections
+        server.bind(('127.0.0.1', port))
+        server.listen(5)
+        
         while True:
             conversionQueue.put(server.accept())
     except:
@@ -81,4 +83,4 @@ def startServer(port, concurrentThreads=1):
 
 
 if __name__ == "__main__":
-    startServer(40234, 1)
+    startServer(40234, 2)

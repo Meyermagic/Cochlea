@@ -305,9 +305,9 @@ switch ($_SERVER['REQUEST_METHOD']) {
     case 'POST':
         $upload_handler->post();
         break;
-    case 'DELETE':
-        $upload_handler->delete();
-        break;
+    // case 'DELETE':
+        // $upload_handler->delete();
+        // break;
     default:
         header('HTTP/1.0 405 Method Not Allowed');
 }
