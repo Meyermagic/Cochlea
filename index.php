@@ -5,15 +5,33 @@
 
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-		<title>Group Listen</title>
-
+		<title>Cochlea - 
+<?php
+	echo $_GET['room'];
+?>
+		</title>
+		
 		<script type='text/javascript' src='js/jquery-1.6.1.min.js'></script>
+		
+		<link type="text/css" href="css/jquery-ui-1.8.14.custom.css" rel="stylesheet" />
+		<script type="text/javascript" src="js/jquery-ui-1.8.14.custom.min.js"></script>
+		
+		<script type='text/javascript' src='js/jquery.iframe-transport.js'></script>
+		<script type='text/javascript' src='js/jquery.fileupload.js'></script>
+		
+		<script type='text/javascript' src='js/domination.js'></script>
 		
 		<link type='text/css' rel="stylesheet" href="css/style.css" />
 		<script type='text/javascript' src='js/main.js'></script>
 	</head>
 
 	<body>
+		<form id='fileupload' action='server/upload.php' method='POST' enctype='multipart/form-data'>
+			<label class='fileinput-button'>
+				<span>Upload Music...</span>
+				<input id='upload-field' type='file' name='files[]' multiple />
+			</label>
+		</form>
 		<div id='main-container'>
 			<div id='now-playing-bar'>
 				<div id='song-info-container'>
@@ -22,21 +40,20 @@
 
 				<div id='controls-container'>
 					<div id='buttonsbar-container'>
-						<button id='previous'>previous</button>
-						<button id='play'>play/pause</button>
-						<button id='next'>next</button>
+						<button id='sync'>Sync</button>
+						<button id='previous'>Previous</button>
+						<button id='play'>Play</button>
+						<button id='next'>Next</button>
 					</div>
 
 					<div id='seekbar-container'>
-
+						<div id='seekbar'></div>
 					</div>
 				</div>
 			</div>
 
 			<div id='listeners-bar'>
-<?php
-echo $_GET['room'];
-?>
+				
 			</div>
 
 			<div id='main-bar'>

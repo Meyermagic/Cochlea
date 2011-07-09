@@ -37,9 +37,76 @@ function windowResize() {
 	}
 }
 
+function buttonSetup() {
+	$('button').button();
+	$('#play').button({
+		text: false,
+		icons: {
+			primary: 'ui-icon-play'
+		}
+	});
+	$('#next').button({
+		text: false,
+		icons: {
+			primary: 'ui-icon-seek-end'
+		}
+	});
+	$('#previous').button({
+		text: false,
+		icons: {
+			primary: 'ui-icon-seek-first'
+		}
+	});
+	$('#sync').button({
+		text: false,
+		icons: {
+			primary: 'ui-icon-link'
+		}
+	});
+}
+
+function constructPlaylistEntry(title, artist, album, votes) {
+	return TR({'class': 'playlist-entry'},
+		TD({'class': 'playlist-entry-title'}, title),
+		TD({'class': 'playlist-entry-artist'}, artist),
+		TD({'class': 'playlist-entry-album'}, album),
+		TD({'class': 'playlist-entry-votes'}, votes),
+		TD({'class': 'playlist-entry-upvote'}, 
+			BUTTON({'class': 'upvote-button'}, 'upvote').button({text: false, icons: {primary: 'ui-icon-plusthick'}})
+		),
+		TD({'class': 'playlist-entry-downvote'},
+			BUTTON({'class': 'downvote-button'}, 'downvote').button({text: false, icons: {primary: 'ui-icon-minusthick'}})
+		)
+	);
+}
+
+function constructChatMessage(user, timestamp, message) {
+	
+}
+
+function uploaderSetup() {
+	$('#fileupload').fileupload({
+		fileInput: $('#upload-field')
+	});
+}
+
+function playerCanPlay() {
+	player.play();
+}
+
+function playerSetup() {
+	player = document.createElement('audio');
+	$(player).bind('canplay', playerCanPlay);
+}
+
 function documentReady() {
 	windowResize();
 	$(window).resize(windowResize);
+	uploaderSetup();
+	buttonSetup();
+	playerSetup();
+	$('#playlist-main').append(constructPlaylistEntry('TestSong', 'TestArtist', 'TestAlbum', '10'));
+	$('#playlist-main').append(constructPlaylistEntry('TestSong', 'TestArtist', 'TestAlbum', '10'));
 }
 
 $(document).ready(documentReady);
