@@ -58,7 +58,7 @@ MEDIA_URL = 'http://localhost/media'
 ADMIN_MEDIA_PREFIX = '/media/'
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = ''
+SECRET_KEY = 't&wii6z=hj6)o1gguvob4esx7baa5_w19z6_p_okl@q5m71@*c'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
